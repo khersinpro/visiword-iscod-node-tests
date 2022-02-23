@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "visiword",
+    "password": "visiwordpassword",
+    "database": "visiword",
+    "host": "127.0.0.1",
+    "port": "3316",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "visiword",
+    "password": "visiwordpassword",
+    "database": "visiword",
+    "host": "127.0.0.1",
+    "port": "3316",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "visiword",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

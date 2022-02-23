@@ -11,9 +11,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^27.4.0",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "jest-runner-groups": "^2.1.0",
+    "sequelize-cli": "^6.4.1"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.2"
+  },
+  "jest": {
+    "runner": "groups"
   }
 }
