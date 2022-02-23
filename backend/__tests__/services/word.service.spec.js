@@ -1,3 +1,5 @@
+const each = require("jest-each").default;
+
 const wordRepository = require("../../repositories/word.repository");
 jest.mock("../../repositories/word.repository");
 
@@ -18,6 +20,19 @@ describe("Provide words", () => {
 
     // THEN
     return expect(actualWord).resolves.toBe(mockWord.word);
+  });
+
+  each([
+    new Date(2019, 0, 1),
+    new Date(2021, 11, 31),
+    new Date(2020, 10, 1),
+  ]).it("should throw an error if the date is too old : %s", (oldDate) => {
+    // GIVEN
+    // WHEN
+    actualResult = wordService.wordOfDay(oldDate);
+
+    // THEN
+    return expect(actualResult).rejects.not.toBeFalsy();
   });
 
   it("should throw an error if the date is in the future", () => {
