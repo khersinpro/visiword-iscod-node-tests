@@ -1,23 +1,8 @@
+const fs = require("fs");
+const path = require("path");
+
 const { Word } = require("../models");
-const wordList = [
-  "etait",
-  "comme",
-  "avait",
-  "cette",
-  "faire",
-  "quand",
-  "aussi",
-  "temps",
-  "alors",
-  "leurs",
-  "homme",
-];
-
-let index = 0;
-
-function provideWord() {
-  return wordList[index++].toUpperCase();
-}
+const wordList = loadWordsSync();
 
 function findById(id) {
   return Word.findByPk(id)
@@ -47,6 +32,18 @@ function findByDate(date) {
 
 function dateToString(date) {
   return `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
+}
+
+function loadWordsSync() {
+  return fs
+    .readFileSync(path.resolve(__dirname, "../config/mots_5.txt"))
+    .toString()
+    .split("\n");
+}
+
+function provideWord() {
+  let randomIndex = Math.floor(Math.random() * wordList.length);
+  return wordList[randomIndex].toUpperCase();
 }
 
 module.exports = { findById, findByDate };
